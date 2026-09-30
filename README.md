@@ -181,7 +181,26 @@ The project follows a structured 10-phase workflow:
 
 ## What I Learned
 
-*(To be added after project completion)*
+This project spanned the full analytics lifecycle — from raw data ingestion to business-ready deliverables.
+
+**Technical:**
+- Building a star schema in SQLite with proper dimensional modeling
+- Writing SQL at three complexity levels: basic aggregation, intermediate joins, advanced CTEs with window functions
+- Generating reproducible synthetic data with controlled correlations using Python
+- Engineering a composite engagement score with sensitivity analysis across three weighting schemes
+- Using scipy for hypothesis testing (t-tests, chi-square, confidence intervals)
+- Reconciling KPIs across SQL, Python, and Excel to ensure data consistency
+
+**Analytical:**
+- The most counterintuitive finding was that engagement score did NOT significantly predict renewal (p = 0.62) — contract type and tenure were far stronger signals
+- Synthetic data generation requires deliberate design: too-perfect correlations are unrealistic, too-weak correlations are uninformative
+- Data quality is not a one-time step — it requires validation, documentation, and honest disclosure of remaining issues
+- A project portfolio should show end-to-end thinking, not just isolated analyses
+
+**Portfolio:**
+- Documenting assumptions and limitations is as important as the analysis itself
+- Writing for a hiring manager means explaining the "so what" for every finding
+- Version control (git) keeps the project history clean and shows professional workflow
 
 ---
 
