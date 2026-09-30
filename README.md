@@ -140,7 +140,42 @@ The project follows a structured 10-phase workflow:
 
 ## Key Findings
 
-*(To be added after analysis completion)*
+**Data Scale:** 7,043 customers | 25,000 interactions | 30,000 content records | 5,950 events | 799,220 activity records
+
+**Core Metrics:**
+- Renewal Rate: **84.6%** (5,956 renewed, 1,087 churned)
+- Total Monthly Revenue: **$448,305.85**
+- Average Contract Value: **$1,336.03**
+- Average Engagement Score: **0.294** (0–1 scale)
+
+**Key Insights:**
+
+1. **Contract type is the strongest predictor of renewal:**
+   - Two year contracts: 98.5% renewal
+   - One year contracts: 89.4% renewal
+   - Month-to-month contracts: 77.6% renewal
+   - Chi-square test: p < 0.001 (highly significant)
+
+2. **Tenure strongly correlates with retention:**
+   - 0–12 months: 76.4% renewal
+   - 13–24 months: 84.6% renewal
+   - 25–48 months: 92.3% renewal
+   - 49+ months: 97.9% renewal
+
+3. **Engagement score is NOT significantly different between renewed and churned clients:**
+   - Renewed avg: 0.2935 | Churned avg: 0.2950
+   - Difference: −0.5%
+   - t-test: p = 0.62 (not significant at α = 0.05)
+   - This is a critical finding — engagement alone is not a reliable churn signal
+
+4. **At-risk clients (bottom 25% interactions + logins):**
+   - 221 clients (3.1% of base)
+   - At-risk renewal rate: 86.0% (slightly above average)
+
+**Business Implications:**
+- Contract type and tenure are actionable levers for retention strategy
+- Engagement metrics alone should not be used as a churn prediction model
+- Focus retention interventions on contract renewal windows and early-tenure clients
 
 ---
 
