@@ -66,7 +66,8 @@ axes[0].set_title('Engagement Score by Renewal Status'); axes[0].set_xlabel('Eng
 
 # Box plot
 box_data = [renewed, churned]
-bp = axes[1].boxplot(box_data, labels=['Renewed', 'Churned'], patch_artist=True)
+bp = axes[1].boxplot(box_data, patch_artist=True)
+axes[1].set_xticklabels(['Renewed', 'Churned'])
 bp['boxes'][0].set_facecolor('steelblue'); bp['boxes'][0].set_alpha(0.7)
 bp['boxes'][1].set_facecolor('coral'); bp['boxes'][1].set_alpha(0.7)
 axes[1].set_title('Engagement Score: Box Plot Comparison'); axes[1].set_ylabel('Engagement Score')
@@ -189,7 +190,8 @@ fig, ax = plt.subplots(figsize=(10, 6))
 
 contracts = features_df['Contract'].unique()
 data_by_contract = [features_df[features_df['Contract'] == c]['engagement_score'].values for c in contracts]
-bp = ax.boxplot(data_by_contract, labels=contracts, patch_artist=True)
+bp = ax.boxplot(data_by_contract, patch_artist=True)
+ax.set_xticklabels(contracts)
 colors = ['coral', 'gold', 'seagreen']
 for patch, color in zip(bp['boxes'], colors):
     patch.set_facecolor(color); patch.set_alpha(0.7)
