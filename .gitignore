@@ -22,8 +22,6 @@ data/processed/*
 !data/processed/.gitkeep
 
 # Excel files
-excel/*.xlsx
-excel/*.xlsm
 
 # Power BI
 powerbi/*.pbix
