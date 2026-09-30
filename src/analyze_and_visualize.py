@@ -79,7 +79,7 @@ print("=" * 60)
 
 # By contract type
 print("\nBy Contract Type:")
-contract_renewal = features_df.groupby('contract').apply(
+contract_renewal = features_df.groupby('Contract').apply(
     lambda x: pd.Series({
         'customers': len(x),
         'renewed': (x['churn'] == 'No').sum(),
@@ -140,7 +140,7 @@ print(f"  p-value: {p_value:.4e}")
 print(f"  Significant: {'Yes' if p_value < 0.05 else 'No'} at alpha=0.05")
 
 # Chi-square test: contract vs churn
-contingency = pd.crosstab(features_df['contract'], features_df['churn'])
+contingency = pd.crosstab(features_df['Contract'], features_df['churn'])
 chi2, p_value_chi2, dof, expected = stats.chi2_contingency(contingency)
 print(f"\nChi-Square Test (Contract Type vs Renewal):")
 print(f"  Chi-square: {chi2:.4f}")
@@ -198,7 +198,7 @@ comparison.to_csv(os.path.join(REPORTS_DIR, "engagement_comparison.csv"))
 print(f"Saved engagement comparison to reports/engagement_comparison.csv")
 
 # Save segment analysis
-segment_analysis = features_df.groupby(['contract', 'engagement_band']).apply(
+segment_analysis = features_df.groupby(['Contract', 'engagement_band']).apply(
     lambda x: pd.Series({
         'customers': len(x),
         'renewal_rate': (x['churn'] == 'No').mean() * 100,
