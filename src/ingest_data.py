@@ -46,27 +46,43 @@ def load_customer_data(path: str = None) -> pd.DataFrame:
             )
 
     print(f"Loading customer data from {path}...")
-    df = pd.read_csv(path, dtype={"customerID": str, "customer_id": str})
+    df = pd.read_csv(path, dtype={"customer_id": str})
 
-    # Standardize column names
-    column_mapping = {
-        "customerID": "customer_id",
-        "SeniorCitizen": "senior_citizen",
-        "PhoneService": "phone_service",
-        "MultipleLines": "multiple_lines",
-        "InternetService": "internet_service",
-        "OnlineSecurity": "online_security",
-        "OnlineBackup": "online_backup",
-        "DeviceProtection": "device_protection",
-        "TechSupport": "tech_support",
-        "StreamingTV": "streaming_tv",
-        "StreamingMovies": "streaming_movies",
-        "PaperlessBilling": "paperless_billing",
-        "PaymentMethod": "payment_method",
-        "MonthlyCharges": "monthly_charges",
-        "TotalCharges": "total_charges",
-        "Churn": "churn",
-    }
+    # Standardize column names — handle both public dataset (customerID) and synthetic (customer_id)
+    column_mapping = {}
+    for old_col in df.columns:
+        if old_col in ["customerID", "CustomerID", "customer_id"]:
+            column_mapping[old_col] = "customer_id"
+        elif old_col == "SeniorCitizen":
+            column_mapping[old_col] = "senior_citizen"
+        elif old_col == "PhoneService":
+            column_mapping[old_col] = "phone_service"
+        elif old_col == "MultipleLines":
+            column_mapping[old_col] = "multiple_lines"
+        elif old_col == "InternetService":
+            column_mapping[old_col] = "internet_service"
+        elif old_col == "OnlineSecurity":
+            column_mapping[old_col] = "online_security"
+        elif old_col == "OnlineBackup":
+            column_mapping[old_col] = "online_backup"
+        elif old_col == "DeviceProtection":
+            column_mapping[old_col] = "device_protection"
+        elif old_col == "TechSupport":
+            column_mapping[old_col] = "tech_support"
+        elif old_col == "StreamingTV":
+            column_mapping[old_col] = "streaming_tv"
+        elif old_col == "StreamingMovies":
+            column_mapping[old_col] = "streaming_movies"
+        elif old_col == "PaperlessBilling":
+            column_mapping[old_col] = "paperless_billing"
+        elif old_col == "PaymentMethod":
+            column_mapping[old_col] = "payment_method"
+        elif old_col == "MonthlyCharges":
+            column_mapping[old_col] = "monthly_charges"
+        elif old_col == "TotalCharges":
+            column_mapping[old_col] = "total_charges"
+        elif old_col == "Churn":
+            column_mapping[old_col] = "churn"
     df = df.rename(columns=column_mapping)
 
     # Convert numeric columns
@@ -128,12 +144,11 @@ def ingest_all():
     # Load customer data
     customer_df = load_customer_data()
     customer_df = standardize_ids(customer_df, "customer_id")
-    customer_df = standardize_ids(customer_df, "customerID")
     save_staging(customer_df, "stg_customer.csv")
 
     # Validate customer schema
     expected_customer_cols = [
-        "customerID", "customer_id", "gender", "senior_citizen", "partner",
+        "customer_id", "gender", "senior_citizen", "partner",
         "dependents", "tenure", "phone_service", "internet_service",
         "contract", "paperless_billing", "payment_method",
         "monthly_charges", "total_charges", "churn"
