@@ -10,7 +10,6 @@
 
 This project demonstrates a complete analytics workflow built to answer a realistic business question. It uses a publicly available fictional customer churn dataset combined with clearly labeled synthetic operational data to simulate a real-world analytics environment.
 
-**Important:** This is an independent educational project. It does **not** use Gartner proprietary data and must not be presented as a Gartner project.
 
 ---
 
