@@ -438,12 +438,12 @@ def generate_all():
     # dim_content and dim_event are derived from usage/participation
     dim_content_df = pd.DataFrame(
         {
-            "content_id": [f"CNT-{i:03d}" for i in range(1, 19)],
+            "content_id": [f"CNT-{i:03d}" for i in range(1, 18)],
             "content_category": ["Technology"] * 3 + ["Strategy"] * 3 + ["Operations"] * 3
-            + ["Finance"] * 3 + ["Marketing"] * 3 + ["Industry Research"] * 2,
+            + ["Finance"] * 3 + ["Marketing"] * 2,
             "content_type": np.random.choice(
                 ["Report", "Whitepaper", "Webinar Recording", "Case Study"],
-                size=18,
+                size=17,
             ),
         }
     )
