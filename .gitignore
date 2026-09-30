@@ -1,0 +1,39 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Notebooks
+.ipynb_checkpoints/
+# Notebook checkpoints (keep notebooks themselves)
+.ipynb_checkpoints/
+
+# Data files (too large for git)
+data/raw/public/*
+data/raw/synthetic/*
+data/staging/*
+data/processed/*
+!data/raw/public/.gitkeep
+!data/raw/synthetic/.gitkeep
+!data/staging/.gitkeep
+!data/processed/.gitkeep
+
+# Excel files
+excel/*.xlsx
+excel/*.xlsm
+
+# Power BI
+powerbi/*.pbix
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
