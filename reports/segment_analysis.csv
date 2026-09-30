@@ -1,0 +1,10 @@
+Contract,engagement_band,customers,renewal_rate,avg_monthly_charges,avg_engagement
+Month-to-month,High,34.0,76.47,61.99,0.53
+Month-to-month,Low,1317.0,77.6,63.33,0.19
+Month-to-month,Medium,2532.0,77.61,63.64,0.34
+One year,High,16.0,93.75,61.84,0.53
+One year,Low,619.0,89.98,64.09,0.19
+One year,Medium,1229.0,89.1,64.25,0.34
+Two year,High,10.0,100.0,57.38,0.53
+Two year,Low,426.0,98.83,64.42,0.19
+Two year,Medium,860.0,98.26,62.81,0.35

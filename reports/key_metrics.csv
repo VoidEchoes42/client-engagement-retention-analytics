@@ -1,0 +1,11 @@
+Metric,Value
+Total Customers,7043.0
+Renewed,5956.0
+Churned,1087.0
+Renewal Rate (%),84.57
+Churn Rate (%),15.43
+Total Monthly Revenue ($),448305.85
+Avg Contract Value ($),1336.03
+Avg Engagement Score,0.2937
+At-Risk Clients,221.0
+At-Risk Renewal Rate (%),85.97
