@@ -122,11 +122,8 @@ ax.set_xticks(x); ax.set_xticklabels(tenure_data.index)
 ax.set_title('Renewal Rate by Tenure Band', fontweight='bold')
 ax.set_ylabel('Renewal Rate (%)')
 ax.set_ylim(0, 105)
-for bar, val in zip(bars, tenure_data['renewal_rate']):
-    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1.5, f'{val:.1f}%\n(n={int(tenure_data.loc[tenure_data.index[list(tenure_data.index).index(bar.get_x() + bar.get_width()/2)], "customers"]) if len(tenure_data) > 0 else 0})', ha='center', fontsize=9)
-
-# Add count labels
 for i, (idx, row) in enumerate(tenure_data.iterrows()):
+    ax.text(i, row['renewal_rate'] + 1.5, f'{row["renewal_rate"]:.1f}%', ha='center', fontweight='bold')
     ax.text(i, 3, f'n={int(row["customers"])}', ha='center', fontsize=10, color='white', fontweight='bold')
 
 plt.tight_layout()
